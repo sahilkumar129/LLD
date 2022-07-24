@@ -34,7 +34,7 @@ Top use cases for parking lot
 Main classes of our parking lot systems are:
 - ParkingLot
 - ParkingFloors
-- ParkingSlot
+- ParkingSpot
 - Account
 - Ticket
 - EntrancePanel

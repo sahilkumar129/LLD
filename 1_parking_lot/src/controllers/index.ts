@@ -1,6 +1,6 @@
 import * as parkingLotRoutes from "./parkingLot.controller";
 import * as parkingFloorRoutes from "./parkingFloor.controller";
-import * as parkingSlotRoutes from "./parkingSlot.controller";
+import * as ParkingSpotRoutes from "./ParkingSpot.controller";
 import * as adminRoutes from "./admin.controller";
 import * as customerRoutes from "./customer.controller";
 import * as parkingAttendantRoutes from "./parkingAttendant.controller";
@@ -13,7 +13,7 @@ import * as parkingDisplayBoardRoutes from "./parkingDisplayBoard.controller";
 export const initialize = function (app) {
   parkingLotRoutes.initialize(app);
   parkingFloorRoutes.initialize(app);
-  parkingSlotRoutes.initialize(app);
+  ParkingSpotRoutes.initialize(app);
   adminRoutes.initialize(app);
   customerRoutes.initialize(app);
   parkingAttendantRoutes.initialize(app);

@@ -1,62 +1,65 @@
+import { AccountStatus, Person } from "../constants";
+import { CustomerInfoPanel, EntryPanel, ExitPanel } from "./panel";
+import { ParkingDisplayBoard } from "./parkingDisplayBoard";
+import { ParkingFloor } from "./parkingFloor";
+import { ParkingSpot } from "./parkingSpot";
+
 abstract class Account {
-  phoneNumber: string;
-  password: string;
-  abstract getDetails(): Account;
-  abstract editDetails(): Account;
-  abstract login(): Account;
-  abstract logout(): Account;
+  private username: string;
+  private password: string;
+  private accountStatus: AccountStatus;
+  private person: Person;
+  public getUsername = () => this.username;
+  public setUsername = (username: string) => (this.username = username);
+  public getPassword = () => this.password;
+  public setPassword = (password: string) => (this.password = password);
+  public getAccountStatus = () => this.accountStatus;
+  public setAccountStatus = (status: AccountStatus) => (this.accountStatus = status);
+  public getPerson = () => this.person;
+  public setPerson = (person: Person) => (this.person = person);
+  /**
+   *
+   * @param username
+   * @param oldPassword
+   * @param newPassword
+   */
+  public resetPassword(username: string, oldPassword: string, newPassword: string): boolean {
+    if (username === this.getUsername() && this.getPassword() === oldPassword) {
+      this.setPassword(newPassword);
+      return true;
+    }
+    return false;
+  }
 }
 
 export class ParkingAttendant extends Account {
-  constructor() {
-    super();
-  }
-  getDetails(): Account {
-    return this;
-  }
-  editDetails(): Account {
-    return this;
-  }
-  login(): Account {
-    return this;
-  }
-  logout(): Account {
-    return this;
-  }
-}
-
-export class Customer extends Account {
-  constructor() {
-    super();
-  }
-  getDetails(): Account {
-    return this;
-  }
-  editDetails(): Account {
-    return this;
-  }
-  login(): Account {
-    return this;
-  }
-  logout(): Account {
-    return this;
+  /**
+   *
+   * @param ticketNumber
+   * @returns
+   */
+  processTicket(ticketNumber: string): boolean {
+    return true;
   }
 }
 
 export class Admin extends Account {
-  constructor() {
-    super();
+  addParkingFloor(floor: ParkingFloor): boolean {
+    return true;
   }
-  getDetails(): Account {
-    return this;
+  addParkingSpot(floorName: string, parkingSpot: ParkingSpot): boolean {
+    return true;
   }
-  editDetails(): Account {
-    return this;
+  addParkingDisplayBoard(floorName: string, parkingDisplayBoard: ParkingDisplayBoard): boolean {
+    return true;
   }
-  login(): Account {
-    return this;
+  addCustomerInfoPane(floorName: string, customerInfoPane: CustomerInfoPanel): boolean {
+    return true;
   }
-  logout(): Account {
-    return this;
+  addEntryPanel(floorName: string, entryPanel: EntryPanel): boolean {
+    return true;
+  }
+  addExitPanel(floorName: string, exitPanel: ExitPanel): boolean {
+    return true;
   }
 }
