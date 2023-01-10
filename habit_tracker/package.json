@@ -2,7 +2,7 @@
   "name": "habit_tracker",
   "version": "1.0.0",
   "description": "habit tracker",
-  "main": "main.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,10 @@
     "self-improvement"
   ],
   "author": "Sahil",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nanoid": "^4.0.0",
+    "uuid": "^9.0.0"
+  }
 }
