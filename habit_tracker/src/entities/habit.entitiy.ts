@@ -1,4 +1,4 @@
-import { HabitData } from "../data/habit.data";
+import { HabitData } from "../db/local.d/";
 
 export class Habit {
   constructor(public id: string, public name: string, public description: string) {}

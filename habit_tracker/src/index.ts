@@ -1,7 +1,10 @@
-import express from "express";
-const app = express();
-import { initialize } from "./controllers";
-const port = 3000;
+import * as bodyParser from "body-parser";
+import { App } from "./app";
+import { errorHandler } from "./middlewares/errorHandler";
 
-initialize(app);
-app.listen(port, () => console.log("Server started on port", port));
+const app = new App({
+  port: +process.env.PORT,
+  middlewares: [bodyParser.json(), errorHandler],
+});
+
+app.listen();
